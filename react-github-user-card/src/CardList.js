@@ -1,4 +1,5 @@
 import React from "react";
+import { FollowerCard } from "./Card";
 import Card from "./Card";
 
 const CardList = props => {
@@ -6,9 +7,12 @@ const CardList = props => {
   return (
     <div className="card-list">
       <Card user={props.dataProp} />
-      {props.followerProp.map(follower => {
-        return <Card user={follower} />;
-      })}
+      <div className="followers">
+        <h2>My Followers:</h2>
+        {props.followerProp.map(follower => {
+          return <FollowerCard key={follower.id} user={follower} />;
+        })}
+      </div>
     </div>
   );
 };
